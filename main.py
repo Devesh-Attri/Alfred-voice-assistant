@@ -2,29 +2,37 @@ import speech_recognition as sr
 import os
 import webbrowser
 import openai
-from config import apikey
 import datetime
 import random
 import numpy as np
+
+apikey = ""
+
+# Initialize chatStr
+chatStr = ""
 
 def chat(query):
     global chatStr
     print(chatStr)
     openai.api_key = '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'
     chatStr += f"Devesh: {query}\n Assistant: "
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt= chatStr,
+    
+    response = openai.Completions.create(
+        engine="text-davinci-003",  # engine replaces model
+        prompt=chatStr,
         temperature=0.7,
         max_tokens=256,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
     )
-    # todo: Wrap this inside of a  try catch block
-    say(response["choices"][0]["text"])
-    chatStr += f"{response['choices'][0]['text']}\n"
-    return response["choices"][0]["text"]
+    
+    # Accessing the first completion
+    completion_text = response.choices[0].text
+
+    say(completion_text)
+    chatStr += f"{completion_text}\n"
+    return completion_text
 
 
 def ai(prompt):
@@ -56,14 +64,19 @@ def say(text):
 def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        # r.pause_threshold =  0.6
-        audio = r.listen(source)
+        #print("Listening...")
         try:
+            audio = r.listen(source, timeout=5)  # Adjust the timeout if needed
+            #print("Audio data:", audio)
             print("Recognizing...")
             query = r.recognize_google(audio, language="en-in")
             print(f"User said: {query}")
             return query
-        except Exception as e:
+        except sr.UnknownValueError:
+            print("Sorry, I did not get that.")
+            return ""
+        except sr.RequestError as e:
+            print(f"Error with the speech recognition service; {e}")
             return "Some Error Occurred. Sorry from alfred"
 
 if __name__ == '__main__':
