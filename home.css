@@ -1,0 +1,129 @@
+/* home.css */
+body {
+    background-color:rgb(9, 6, 91); /* Adjust the color values as needed */
+    margin: 0; /* Remove default body margin for full-page effect */
+    height: 100vh; /* Ensure the body takes up the full height of the viewport */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.center_content{
+    display: flex;
+    flex-direction: row;
+}
+ 
+.header_container {
+    width: 100%;
+    height: 140px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: -20px; /*Add a uniform gap between buttons */
+    margin-right: 20px; /* Adjust the margin for additional space on the right */
+}
+
+.signup_button button,
+.about_button button,
+.contact_button button,
+.download_button button,
+.features_button button,
+.pricing_button button{
+    color: white;
+    background-color: rgb(17, 58, 90);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.8rem;
+    transition: background-color 0.2s ease-in-out;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+.signup_button button:hover,
+.about_button:hover button,
+.contact_button:hover button,
+.download_button:hover button,
+.features_button:hover button,
+.pricing_button:hover button{
+    background-color: #555;
+    color: #f4ae35; /* Set the color to yellow*/
+    text-decoration: none; /* Remove default underline*/
+    position: relative;
+}
+
+.signup_button button:hover::after,
+.about_button:hover button::after,
+.contact_button:hover button::after,
+.download_button:hover button::after,
+.features_button:hover button::after,
+.pricing_button:hover button::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(244, 174, 53); /* Set the color to yellow*/ 
+    bottom: 0;
+    left: 0;
+}
+
+.title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem;
+    color: rgb(244, 174, 53);
+    margin: 0;
+    padding-left: 20px; /* Adjust the left padding as needed */
+    margin-top: 60px;
+}
+
+.left_content {
+    width: 50%; /* Set the width to 50% for left alignment */
+}
+
+
+.typewriter-container {
+    text-align: center;
+}
+
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 4px;
+    display: inline-block;
+    position: relative;
+}
+
+.typewriter::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 3px;
+    width: 1px;
+    animation: blink 0.7s infinite;
+}
+
+
+.paragraph-typewriter {
+    color: white; /* Set text color to white */
+    font-size: 1rem; /* Set font size as needed */
+    margin-top: 20px; /* Adjust margin as needed */
+    line-height: 1.5; /* Set line height for better readability */
+}
+
+.logo {
+    order: -1; /* Move the logo to the start of the flex container */
+    margin-left: 20px;
+
+}
+
+.logo img {
+    width: 110px; /* Adjust the width of the logo as needed */
+    height: auto;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfred-A.I</title>
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+    
+    <div class="header_container">
+
+        <div class="logo">
+            <img src="./assets/logo.png" alt="logo image">
+        </div>
+        
+        <div class="buttons">
+            <div class="signup_button" style="margin-top: -20px;">
+                <a href="./signup.html"><button>SIGN UP</button></a>
+            </div>
+            </div>
+            <div class="about_button" style="margin-top: -20px;">
+                <a href="./about.html"><button>ABOUT</button></a>
+            </div>
+            <div class="contact_button" style="margin-top: -20px;">
+                <a href="./contact.html"><button>CONTACT</button></a>
+            </div>
+            <div class="features_button">
+                <a href="./features.html"><button>FEATURES</button></a>
+            </div>
+            <div class="download_button">
+                <a href="./download.html"><button>DOWNLOAD</button></a>
+            </div>
+            <div class="pricing_button">
+                <a href="./pricing.html"><button>PRICING</button></a>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="center_content">
+        <div class="left_content">
+            <div class="title">
+                <div class="typewriter-container" style="text-align: left;">
+                    <h1 class="typewriter" id="welcome-text"></h1>
+                    <h1 class="typewriter" id="app-text" style="color: white;"></h1>
+                </div>
+                <p class="paragraph-typewriter" id="lorem-ipsum" style="font-family:Verdana, Geneva, Tahoma, sans-serif ;"></p>
+            </div>
+        </div>
+        <div class="center-right-image">
+            <img src="./assets/undraw_Firmware_re_fgdy-removebg-preview.png" alt="">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the elements
+            const welcomeText = document.getElementById('welcome-text');
+            const appText = document.getElementById('app-text');
+            const loremIpsum = document.getElementById('lorem-ipsum');
+
+            // Set the text content for typing
+            const welcomeTextContent = "Whisper It, ";
+            const appTextContent = "Alfred Gets It.";
+            const loremIpsumContent = "Drowning in to-do lists and endless meetings? Meet Alfred, your AI companion who takes 'overwhelmed' out of your vocabulary. Alfred listens to your commands, manages your schedule, and tackles tasks, freeing you to focus on what truly matters. Ditch the chaos, reclaim your time, and unlock your full potential with Alfred - your smarter side always a word away.";
+
+            // Typing speed in milliseconds
+            const typingSpeed = 100;
+
+            // Typing function
+            function typeText(element, textContent) {
+                let i = 0;
+                const typingInterval = setInterval(function () {
+                    if (i < textContent.length) {
+                        element.textContent += textContent.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typingInterval);
+                    }
+                }, typingSpeed);
+            }
+
+            // Trigger typing animations
+            typeText(welcomeText, welcomeTextContent);
+            setTimeout(function () {
+                typeText(appText, appTextContent);
+            }, welcomeTextContent.length * typingSpeed + 1000); // Wait for a moment after typing "Welcome To"
+            setTimeout(function () {
+                typeText(loremIpsum, loremIpsumContent);
+            }, (welcomeTextContent.length + appTextContent.length) * typingSpeed + 2000); // Wait for a moment after typing "Vishleshan App"
+
+            const categoryDropdown = document.getElementById('category');
+            const itemDropdown = document.getElementById('item');
+
+            categoryDropdown.addEventListener('change', function () {
+                const selectedCategory = this.value;
+                updateItemDropdown(selectedCategory);
+            });
+
+            function updateItemDropdown(selectedCategory) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/get_items',
+                    data: { 'category': selectedCategory },
+                    success: function (data) {
+                        itemDropdown.innerHTML = "<option value='' disabled selected>Select Item</option>";
+                        data.items.forEach(item => {
+                            const option = document.createElement('option');
+                            option.value = item;
+                            option.text = item;
+                            itemDropdown.add(option);
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

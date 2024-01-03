@@ -1,12 +1,12 @@
 import speech_recognition as sr
 import os
 import webbrowser
-import openai
 import datetime
 import random
 import numpy as np
+import google.generativeai as genai
 
-apikey = ""
+apikey = genai.configure(api_key='')
 
 # Initialize chatStr
 chatStr = ""
@@ -14,18 +14,10 @@ chatStr = ""
 def chat(query):
     global chatStr
     print(chatStr)
-    openai.api_key = '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'
+    model= genai.GenerativeModel('gemini-pro')
     chatStr += f"Devesh: {query}\n Assistant: "
     
-    response = openai.Completions.create(
-        engine="text-davinci-003",  # engine replaces model
-        prompt=chatStr,
-        temperature=0.7,
-        max_tokens=256,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
-    )
+    response = model.generate_content(query)
     
     # Accessing the first completion
     completion_text = response.choices[0].text
@@ -36,26 +28,21 @@ def chat(query):
 
 
 def ai(prompt):
-    openai.api_key = apikey
-    text = f"OpenAI response for Prompt: {prompt} \n *************************\n\n"
+    model = genai.GenerativeModel('gemini-pro')
+    text = f"Gemini Pro response for Prompt: {prompt} \n *************************\n\n"
 
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=prompt,
-        temperature=0.7,
-        max_tokens=256,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
-    )
-    # todo: Wrap this inside of a  try catch block
-    # print(response["choices"][0]["text"])
-    text += response["choices"][0]["text"]
-    if not os.path.exists("Openai"):
-        os.mkdir("Openai")
+    response = model.generate_content(prompt)
 
-    # with open(f"Openai/prompt- {random.randint(1, 2343434356)}", "w") as f:
-    with open(f"Openai/{''.join(prompt.split('intelligence')[1:]).strip() }.txt", "w") as f:
+    # Handling potential missing choices
+    if response.text:
+        text += response.text
+    else:
+        text += "Gemini Pro was unable to generate any responses."
+
+    if not os.path.exists("Gemini"):
+        os.mkdir("Gemini")
+
+    with open(f"Gemini/{''.join(prompt.split('intelligence')[1:]).strip()}.txt", "w") as f:
         f.write(text)
 
 def say(text):
@@ -80,9 +67,9 @@ def takeCommand():
             return "Some Error Occurred. Sorry from alfred"
 
 if __name__ == '__main__':
-    print("-------------------------------------")
-    print("*-----  Welcome to Alfred A.I  -----*")
-    print("-------------------------------------")
+    print("-------------------------------------------------")
+    print("*-----------  WELCOME TO ALFRED A.I  -----------*")
+    print("-------------------------------------------------")
     hour = datetime.datetime.now().hour
     if 5 <= hour < 12:
         say("Good Morning Sir")
@@ -120,9 +107,15 @@ if __name__ == '__main__':
             os.system(f"open /Users/deveshattri/Desktop/WhatsApp")
 
         elif "Using artificial intelligence".lower() in query.lower():
+            # query.lower().removeprefix("using artificial intelligence")
             ai(prompt=query)
+            say("It's done sir. Please check the gemini folder, you will find a txt file there.")
 
         elif "alfred Quit".lower() in query.lower():
+            say("Thank you for using me sir, it was a great experience to work for you.")
+            print("-------------------------------------------------")
+            print("*-----  THANK YOU FOR USING ALFRED A.I!!!  -----*")
+            print("-------------------------------------------------")
             exit()
 
         elif "reset chat".lower() in query.lower():
