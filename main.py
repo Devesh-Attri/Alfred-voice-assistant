@@ -114,39 +114,39 @@ if __name__ == "__main__":
             say(f"Opening {site[0]} sir...")
             webbrowser.open(site[1])
             # todo: Add a feature to play a specific song
-        if "open music" in query:
-            musicPath = "/Users/deveshattri/Documents/Music.mp3"
-            os.system(f"open {musicPath}")
+    if "open music" in query:
+        musicPath = "/Users/deveshattri/Documents/Music.mp3"
+        os.system(f"open {musicPath}")
 
-        elif "the time" in query:
-            hour = datetime.datetime.now().strftime("%H")
-            min = datetime.datetime.now().strftime("%M")
-            say(f"Sir time is {hour} hours and {min} minutes")
+    elif "the time" in query:
+        hour = datetime.datetime.now().strftime("%H")
+        min = datetime.datetime.now().strftime("%M")
+        say(f"Sir time is {hour} hours and {min} minutes")
 
-        elif "open facetime".lower() in query.lower():
-            os.system(f"open /System/Applications/FaceTime.app")
+    elif "open facetime".lower() in query.lower():
+        os.system(f"open /System/Applications/FaceTime.app")
 
-        elif "open whatsapp".lower() in query.lower():
-            os.system(f"open /Users/deveshattri/Desktop/WhatsApp")
+    elif "open whatsapp".lower() in query.lower():
+        os.system(f"open /Users/deveshattri/Desktop/WhatsApp")
 
-        elif "Using artificial intelligence".lower() in query.lower():
-            ai(prompt=query)
-            say(
-                "It's done sir. Please check the gemini folder, you will find a txt file there."
-            )
+    elif "Using artificial intelligence".lower() in query.lower():
+        ai(prompt=query)
+        say(
+            "It's done sir. Please check the gemini folder, you will find a txt file there."
+        )
 
-        elif "alfred Quit".lower() in query.lower():
-            say(
-                "Thank you for using me sir, it was a great experience to work for you."
-            )
-            print("-------------------------------------------------")
-            print("*-----  THANK YOU FOR USING ALFRED A.I!!!  -----*")
-            print("-------------------------------------------------")
-            exit()
+    elif "alfred Quit".lower() in query.lower():
+        say(
+            "Thank you for using me sir, it was a great experience to work for you."
+        )
+        print("-------------------------------------------------")
+        print("*-----  THANK YOU FOR USING ALFRED A.I!!!  -----*")
+        print("-------------------------------------------------")
+        exit()
         
-        elif "reset chat".lower() in query.lower():
-            chatStr = ""
+    elif "reset chat".lower() in query.lower():
+        chatStr = ""
         
-        else:
-            print("Chatting...")
-            chat(query)
+    else:
+        print("Chatting...")
+        chat(query)
