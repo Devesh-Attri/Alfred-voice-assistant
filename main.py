@@ -5,6 +5,7 @@ import webbrowser
 import datetime
 import random
 import google.generativeai as genai
+import pyautogui
 
 apikey = genai.configure(api_key='')
 
@@ -65,6 +66,32 @@ def takeCommand():
             print(f"Error with the speech recognition service; {e}")
             return "Some Error Occurred. Sorry from Alfred"
 
+def listen_and_type():
+    r = sr.Recognizer()
+
+    try:
+        while True:
+            with sr.Microphone() as source:
+                print("Listening for voice typing...")
+                audio = r.listen(source, timeout=None)  # Set timeout to None for continuous listening
+            
+            spoken_text = r.recognize_google(audio, language="en-in")
+            
+            #print("User said:", spoken_text)
+
+            if "stop listening alfred" in spoken_text.lower():
+                say("Stopping voice typing.")
+                break
+
+            # Type the spoken text in real-time at the current cursor position
+            pyautogui.typewrite(spoken_text)
+            
+    except sr.UnknownValueError:
+        print("Sorry, I did not hear anything.")
+    except sr.RequestError as e:
+        print(f"Error with the speech recognition service; {e}")
+        say("Some Error Occurred. Sorry from Alfred")
+
 def listen_for_wake_word():
     r = sr.Recognizer()
 
@@ -99,16 +126,10 @@ if __name__ == "__main__":
     print("*-----------  WELCOME TO ALFRED A.I  -----------*")
     print("-------------------------------------------------")
 
-            
+    listen_for_wake_word()       
     query = takeCommand()
     # todo: Add more sites
-    sites = [
-    ["youtube", "https://www.youtube.com"],
-    ["Smash Karts", "https://smashkarts.io"],
-    ["Zomato", "https://www.zomato.com"],
-    ["wikipedia", "https://www.wikipedia.com"],
-    ["google", "https://www.google.com"],
-    ]
+    sites = [ ["youtube", "https://www.youtube.com"],["Smash Karts", "https://smashkarts.io"],["Zomato", "https://www.zomato.com"],["wikipedia", "https://www.wikipedia.com"],["google", "https://www.google.com"]]
     for site in sites:
         if f"Open {site[0]}".lower() in query.lower():
             say(f"Opening {site[0]} sir...")
@@ -128,6 +149,10 @@ if __name__ == "__main__":
 
     elif "open whatsapp".lower() in query.lower():
         os.system(f"open /Users/deveshattri/Desktop/WhatsApp")
+
+    elif "start voice typing".lower() in query.lower():
+        say("Starting voice typing. Speak your text. Say 'Stop listening Alfred' to stop.")
+        listen_and_type()
 
     elif "Using artificial intelligence".lower() in query.lower():
         ai(prompt=query)
