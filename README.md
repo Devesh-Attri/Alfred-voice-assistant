@@ -1,2 +1,2 @@
 # Alfred-voice-assistant
-Python-powered voice assistant using OpenAI's GPT-3 for natural language processing. Control your computer, open websites, and engage in intelligent conversations hands-free. Explore the future of AI assistants with Alfred A.I!  #AI #VoiceAssistant #OpenAI #Python #GPT3
+Alfred, your AI assistant! ️ Answer questions, write creatively with AI, 🪄 even type with voice! ️ Wakes up to "Hey Alfred". NLP powered, opens websites, checks time, launches apps. ⏰ Still learning, big potential! #AI #assistant #gith
