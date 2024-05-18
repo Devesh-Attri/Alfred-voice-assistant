@@ -1,0 +1,543 @@
+*
+{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body
+{
+    min-height: 100vh;
+    background-color: #2b1055;
+    /* background:linear-gradient(#2b1055,#7597de); */
+    overflow-x: hidden;
+}
+header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+header .logo
+{
+    color: #fff;
+    font-weight: 700;
+    text-decoration: solid;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+header ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul li
+{
+    list-style: none;
+    margin-left: 20px;
+}
+header ul li a
+{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+header ul li a:hover,
+header ul li a:active
+{
+    background:#fff;
+    color: #2b1055;
+}
+section
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+section::before
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top,#1c0522,transparent);
+    z-index: 1000;
+}
+section img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+section img#moon
+{
+    mix-blend-mode: screen;
+}
+section img#mountains_front
+{
+    z-index: 10;
+}
+
+.form{
+    display: flex;
+    border-radius: 0%; 
+    box-shadow: none;
+    box-decoration-break: clone;
+    background-color: aliceblue;
+    padding-left: 0%;
+    margin-left: 40px;
+    bottom: 20px; /* Adjust the distance from the bottom */
+    left: 30px; /* Adjust the distance from the left */
+    width: 40px; /* Adjust the width of the image */
+}
+
+
+.center_content{
+    display: flex;
+    flex-direction: row;
+}
+
+.header_container {
+    width: 100%;
+    height: 140px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.buttons {
+    display: flex;
+    gap: 50px; /* Add a uniform gap between buttons */
+    margin-right: 20px; /* Adjust the margin for additional space on the right */
+}
+
+.login_button button,
+.signup_button button,
+.download_button button,
+.contact_button button,
+.pricing_button .dropbtn,
+.question-dropdown .dropbtn {
+    color: white;
+    background-color: #2b1055;
+    /* mix-blend-mode: screen; */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease-in-out;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+.login_button button:hover,
+.signup_button button:hover,
+.download_button:hover button,
+.contact_button:hover button,
+.pricing_button:hover .dropbtn,
+.question-dropdown:hover .dropbtn {
+    background-color:#1d70b8;
+    color: #E0AED0; /* Set the color to yellow */
+    text-decoration: none; /* Remove default underline */
+    position: relative;
+}
+
+.login_button button:hover::after,
+.signup_button button:hover::after,
+.download_button:hover button::after,
+.contact_button:hover button::after,
+.pricing_button:hover .dropbtn::after,
+.question-dropdown:hover .dropbtn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #E0AED0; /* Set the color to yellow */
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 100;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 250px;
+    z-index: 100;
+    right: 0;
+}
+
+.dropdown-content .question {
+    padding: 10px;
+}
+
+.dropdown-content .question-dropdown {
+    position: relative;
+    display: block;
+    margin-top: 10px; /* Adjust as needed */
+}
+
+.dropdown-content .question-dropdown .dropbtn {
+    background-color: #1d70b8;
+}
+
+.dropdown-content .question-dropdown .dropdown-content {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: none;
+    background-color: #000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 250px;
+    z-index: 100;
+}
+
+.dropdown-content .question-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.pricing_button:hover .dropdown-content {
+    display: block; /* Add this to display the pricing dropdown */
+}
+
+.dropdown-content .question-dropdown .dropdown-content {
+    position: absolute;
+    top: 0;
+    left: -100%; /* Change right to left */
+    display: none;
+    background-color: #1d70b8;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 250px;
+    z-index: 100;
+}
+
+.dropdown-content .question-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 300px; /* Adjust the width as needed */
+    z-index: 1;
+    right: 0;
+}
+
+.question-dropdown button.dropbtn {
+    width: 100%; /* Set a fixed width for all question options */
+}
+
+
+.title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem;
+    color: #E0AED0;
+    margin: 0;
+    padding-left: 20px; /* Adjust the left padding as needed */
+    margin-top: 60px;
+}
+
+.left_content {
+    width: 50%; /* Set the width to 50% for left alignment */
+}
+
+
+.typewriter-container {
+    text-align: center;
+}
+
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 4px;
+    display: inline-block;
+    position: relative;
+}
+
+.typewriter::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 3px;
+    width: 1px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.paragraph-typewriter {
+    color: white; /* Set text color to white */
+    font-size: 1rem; /* Set font size as needed */
+    margin-top: 20px; /* Adjust margin as needed */
+    line-height: 1.5; /* Set line height for better readability */
+}
+
+.logo {
+order: -1; /* Move the logo to the start of the flex container */
+margin-left: 20px;
+
+} 
+
+.logo img {
+width: 100px; /* Adjust the width of the logo as needed */
+display : flex;
+justify-content:flex-end;
+height: auto;
+align-items: flex-end;
+padding:15px 30px;
+margin:30px;
+} 
+
+
+.container {
+    width: 600px;
+    height: 550px;
+    margin: 50px auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide the container into two columns */
+    gap: 20px; /* Add some gap between the columns */
+    color: black;
+    z-index: 11;
+}
+
+
+form {
+    display: grid;
+    gap: 10px;
+    grid-column: span 2; /* Make the form span both columns */
+
+}
+
+.bottom-left-image {
+    position: fixed;
+    bottom: 10px; /* Adjust the distance from the bottom */
+    left: 10px; /* Adjust the distance from the left */
+    width: 240px; /* Adjust the width of the image */
+    height: auto;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.plot-container img {
+    width: 100%; /* Make sure the image inside plot-container takes up 100% width */
+}
+
+.additional-insights {
+    margin-top: 20px;
+}
+
+.additional-insights h4 {
+    margin-bottom: 10px;
+}
+
+.additional-insights ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.additional-insights li {
+    margin-bottom: 5px;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #3498db;
+}
+
+a:hover {
+    color: #1d70b8;
+}
+
+
+.background_content {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    z-index: -10;
+}
+
+.background_content img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.background_content #stars {
+    animation: animateStars 30s linear infinite;
+}
+
+.container {
+    position: absolute;
+    top: 56%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value (0.7 in this example) for transparency */
+    padding: 20px; /* Adjust padding as needed */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.center_content {
+    z-index: 2;
+}
+
+@keyframes animateStars {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100vh);
+    }
+}
+
+
+/* Container div styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* Adjust height as needed */
+    overflow-y: auto; /* Enable scrolling for chat content */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Chat messages styling */
+  .chat-messages {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow messages to expand within container */
+  }
+  
+  .user-message {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .user-message .message-bubble {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px 10px 0 10px;
+  }
+  
+  .bot-message {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .bot-message .message-bubble {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 10px 10px 10px 0;
+  }
+  
+  /* Input area and send button styling */
+  .input-area {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Push to the bottom of the container */
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .send-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+.pricing_button{
+    z-index: 8;
+}

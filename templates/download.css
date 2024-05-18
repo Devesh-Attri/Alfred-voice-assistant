@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    background-size: auto;
+    color: white; /* Change to white */
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(#000,#2b1055,#0171d3);;
+    column-gap: 30px;
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#000,#2b1055,#0171d3);;
+    column-gap: 30px;
+}
+
+.center_content {
+    display: flex;
+    flex-direction: row;
+}
+
+.center_content h1{
+    position: absolute;
+    top: 6px;
+    left: 135px;
+}
+
+.header_container {
+    width: 100%;
+    height: 140px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.buttons {
+    display: flex;
+    gap: 50px; /* Add a uniform gap between buttons */
+    margin-right: 20px; /* Adjust the margin for additional space on the right */
+}
+
+.login_button button,
+.signup_button button,
+.download_button button,
+.contact_button button,
+.pricing_button .dropbtn,
+.question-dropdown .dropbtn {
+    color: white;
+    background-color: #2b1055;
+    /* mix-blend-mode: screen; */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease-in-out;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+.login_button button:hover,
+.signup_button button:hover,
+.download_button:hover button,
+.contact_button:hover button,
+.pricing_button:hover .dropbtn,
+.question-dropdown:hover .dropbtn {
+    background-color:#1d70b8;
+    color: #E0AED0; /* Set the color to yellow */
+    text-decoration: none; /* Remove default underline */
+    position: relative;
+}
+
+.login_button button:hover::after,
+.signup_button button:hover::after,
+.download_button:hover button::after,
+.contact_button:hover button::after,
+.pricing_button:hover .dropbtn::after,
+.question-dropdown:hover .dropbtn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #E0AED0; /* Set the color to yellow */
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem;
+    color: rgb(244, 174, 53);
+    margin: 0;
+    padding-left: 20px; /* Adjust the left padding as needed */
+    margin-top: 20px; /* Adjust the top margin as needed */
+}
+
+.left_content {
+    width: 100%; /* Set the width to 50% for left alignment */
+}
+
+.paragraph {
+    color: white; /* Set text color to white */
+    font-size: 1rem; /* Set font size as needed */
+    margin-top: 20px; /* Adjust margin as needed */
+    line-height: 1.5; /* Set line height for better readability */
+    padding-left: 20px; /* Adjust the left padding as needed */
+}
+
+.logo {
+    order: -1; /* Move the logo to the start of the flex container */
+    margin-left: 20px;
+}
+
+.logo img {
+    width: 110px; /* Adjust the width of the logo as needed */
+    height: auto;
+}
+
+.return-home {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.return-home a {
+    background-color: #f4ae35; /* Yellow background color */
+    color: white; /* White text color */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 20px; /* Adjusted padding for width and height */
+    border-radius: 5px; /* Add rounded corners */
+    transition: border-bottom 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.return-home a:hover {
+    border-bottom: 2px solid white; /* White line on hover */
+    background-color: #ffcc00; /* Lighter yellow background on hover */
+}
+
+/* Add a line under all buttons when hovered */
+.buttons button:hover {
+    border-bottom: 2px solid #f4ae35; /* Yellow color */
+}

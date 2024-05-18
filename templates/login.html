@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Login and Signup Form</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./login.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="container forms">
+      <div class="form login">
+        <div class="form-content">
+          <header>Login</header>
+          <form action="#">
+            <div class="field input-field">
+              <input type="email" placeholder="Email" class="input" />
+            </div>
+
+            <div class="field input-field">
+              <input type="password" placeholder="Password" class="password" />
+              <i class="bx bx-hide eye-icon"></i>
+            </div>
+
+            <div class="form-link">
+              <a href="#" class="forgot-pass">Forgot password?</a>
+            </div>
+
+            <div class="field button-field">
+              <button>Login</button>
+            </div>
+          </form>
+
+          <div class="form-link">
+            <span
+              >Don't have an account?
+              <a href="#" class="link signup-link">Signup</a></span
+            >
+          </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="media-options">
+          <!-- <a href="#" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon'></i>
+                        <span>Login with Facebook</span>
+                    </a> -->
+        </div>
+
+        <div class="media-options">
+          <a href="#" class="field google">
+            <img src="../static/google.png" alt="" class="google-img" />
+            <span>Login with Google</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Signup Form -->
+
+      <div class="form signup">
+        <div class="form-content">
+          <header>Signup</header>
+          <form action="#">
+            <div class="field input-field">
+              <input type="first" placeholder="Firstname" class="input" />
+            </div>
+
+            <div class="field input-field">
+              <input type="last" placeholder="Lastname" class="input" />
+            </div>
+
+            <div class="field input-field">
+              <input type="email" placeholder="Email" class="input" />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="password"
+                placeholder="Create password"
+                class="password"
+              />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="password"
+                placeholder="Confirm password"
+                class="password"
+              />
+              <i class="bx bx-hide eye-icon"></i>
+            </div>
+
+            <div class="field button-field">
+              <button>Signup</button>
+            </div>
+          </form>
+
+          <div class="form-link">
+            <span
+              >Already have an account?
+              <a href="#" class="link login-link">Login</a></span
+            >
+          </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="media-options">
+          <!-- <a href="#" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon'></i>
+                        <span>Login with Facebook</span>
+                    </a> -->
+        </div>
+
+        <div class="media-options">
+          <a href="#" class="field google">
+            <img src="../static/google.png" alt="" class="google-img" />
+            <span>Login with Google</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="login_background_content">
+      <img src="../static/stars.png" id="stars" />
+    </section>
+
+    <!-- google auth -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+      import {
+        getAuth,
+        GoogleAuthProvider,
+        signInWithRedirect,
+        getRedirectResult,
+      } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDXcPVwQrAyUmtXh7tLQkuiA1G8o4LTJew",
+        authDomain: "fir-52c4a.firebaseapp.com",
+        projectId: "fir-52c4a",
+        storageBucket: "fir-52c4a.appspot.com",
+        messagingSenderId: "265754492288",
+        appId: "1:265754492288:web:9b8fe4bb7aa11597b6d565",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const provider = new GoogleAuthProvider();
+      login.addeventlistener("click", (e) => {
+        signInWithRedirect(auth, provider);
+
+        getRedirectResult(auth)
+          .then((result) => {
+            // This gives you a Google Access Token. You can use it to access Google APIs.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+
+            // The signed-in user info.
+            const user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+          })
+          .catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+          });
+      });
+    </script>
+
+    <!-- JavaScript -->
+    <script src="./newlogsin.js"></script>
+  </body>
+</html>

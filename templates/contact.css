@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(17, 58, 90);
+}
+
+.header_container {
+    width: 100%;
+    height: 140px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.buttons {
+    display: flex;
+    gap: 50px; /* Add a uniform gap between buttons */
+    margin-right: 20px; /* Adjust the margin for additional space on the right */
+}
+
+.login_button button,
+.signup_button button,
+.home_button button,
+.faq_button .dropbtn,
+.question-dropdown .dropbtn {
+    color: white;
+    background-color: rgb(17, 58, 90);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease-in-out;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.login_button button:hover,
+.signup_button button:hover,
+.home_button:hover button,
+.contact_button:hover button,
+.faq_button:hover .dropbtn,
+.question-dropdown:hover .dropbtn {
+    background-color: #555;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 250px;
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown-content .question {
+    padding: 10px;
+}
+
+.dropdown-content .question-dropdown {
+    position: relative;
+    display: block;
+    margin-top: 10px; /* Adjust as needed */
+}
+
+.dropdown-content .question-dropdown .dropbtn {
+    background-color: #555;
+}
+
+.dropdown-content .question-dropdown .dropdown-content {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: none;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 250px;
+    z-index: 1;
+}
+
+.dropdown-content .question-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.faq_button:hover .dropdown-content {
+    display: block; /* Add this to display the FAQ dropdown */
+}
+
+.dropdown-content .question-dropdown .dropdown-content {
+    position: absolute;
+    top: 0;
+    left: -100%; /* Change right to left */
+    display: none;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 250px;
+    z-index: 1;
+}
+
+.dropdown-content .question-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 300px; /* Adjust the width as needed */
+    z-index: 1;
+    right: 0;
+}
+
+.question-dropdown button.dropbtn {
+    width: 100%; /* Set a fixed width for all question options */
+}
+
+.boxContainerUnique {
+    background-color: rgb(17, 58, 90);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 20px 0; /* Adjust the top and bottom margin as needed */
+}
+
+/* Apply the same styles for all input fields, including the background color and border */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea[name="message"] {
+    width: 100%;
+    max-width: 400px;
+    height: 45px;
+    padding: 10px;
+    font-family: 'Acme', sans-serif;
+    border: none;
+    border-bottom: 1px solid rgb(240, 119, 12);
+    background-color: white;
+    transition: border-color 0.3s;
+    border-radius: 8px;
+    box-sizing: border-box; /* Ensure padding and border don't add to the width */
+    width: 900px;
+}
+
+/* Remove the outline on focus for all input fields */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea[name="message"]:focus {
+    outline: none;
+}
+
+/* Apply the same styles for the hover effect on all input fields */
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+textarea[name="message"]:hover {
+    background-color: white;
+    border: 2px solid rgb(240, 119, 12);
+    transition: border-color 0.3s;
+}
+
+.contactContainer h2 {
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    margin-top: 29px;
+    font-family: 'Teko', sans-serif;
+}
+
+.formsUnique {
+    width: 400px;
+    padding: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Acme', sans-serif;
+}
+
+.formsGroupUnique {
+    margin-bottom: 30px;
+    backdrop-filter: blur(5px);
+    background-color: transparent;
+    color: rgb(240, 119, 12);
+    font-family: 'Acme', sans-serif;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    font-family: 'Acme', sans-serif;
+    color: rgb(240, 119, 12);
+}
+
+button[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button[type="button"]:hover {
+    background-color: #45a049;
+    box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    order: -1; /* Move the logo to the start of the flex container */
+    margin-left: 20px;
+}
+
+.logo img {
+    width: 110px; /* Adjust the width of the logo as needed */
+    height: auto;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    margin-top: 29px;
+    font-family: 'Teko', sans-serif;
+}

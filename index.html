@@ -1,121 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alfred-A.I</title>
-    <link rel="stylesheet" href="./home.css">
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./templates/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+    <title>Alfred-Home</title>
+  </head>
+  <body>
     <div class="header_container">
+      <div class="buttons">
+        <div class="login_button" style="margin-top: -20px">
+          <a href="./templates/index.html"><button>Home</button></a>
+        </div>
+        <div class="signup_button" style="margin-top: -20px">
+          <a href="./templates/login.html"><button>Signup</button></a>
+        </div>
+        <div class="download_button" style="margin-top: -20px">
+          <a href="./templates/download.html"><button>DOWNLOAD</button></a>
+        </div>
+        <div class="contact_button" style="margin-top: -20px">
+          <a href="./templates/contact.html"><button>Contact</button></a>
+        </div>
 
-        <div class="logo">
-            <img src="./assets/logo.png" alt="logo image">
+        <div class="pricing_button">
+            <button class="dropbtn">PRICING</button>
         </div>
-        
-        <div class="buttons">
-            <div class="signup_button" style="margin-top: -20px;">
-                <a href="./signup.html"><button>SIGN UP</button></a>
-            </div>
-            </div>
-            <div class="about_button" style="margin-top: -20px;">
-                <a href="./about.html"><button>ABOUT</button></a>
-            </div>
-            <div class="contact_button" style="margin-top: -20px;">
-                <a href="./contact.html"><button>CONTACT</button></a>
-            </div>
-            <div class="features_button">
-                <a href="./features.html"><button>FEATURES</button></a>
-            </div>
-            <div class="download_button">
-                <a href="./download.html"><button>DOWNLOAD</button></a>
-            </div>
-            <div class="pricing_button">
-                <a href="./pricing.html"><button>PRICING</button></a>
-            </div>
-        </div>
-    
+      </div>
+      <div class="logo">
+        <img style="height: 220px;width: 250px;margin-left: -60px;margin-top: 60px;" src="./static/Alfred logo.png" alt="logo"/>
+      </div>
     </div>
 
     <div class="center_content">
-        <div class="left_content">
-            <div class="title">
-                <div class="typewriter-container" style="text-align: left;">
-                    <h1 class="typewriter" id="welcome-text"></h1>
-                    <h1 class="typewriter" id="app-text" style="color: white;"></h1>
-                </div>
-                <p class="paragraph-typewriter" id="lorem-ipsum" style="font-family:Verdana, Geneva, Tahoma, sans-serif ;"></p>
-            </div>
+      <div class="left_content">
+        <div class="title">
+          <div class="typewriter-container" style="text-align: left">
+            <h1 class="typewriter" id="welcome-text"></h1>
+            <h1 class="typewriter" id="app-text" style="color: white"></h1>
+          </div>
+          <p
+            class="paragraph-typewriter"
+            id="lorem-ipsum"
+            style="font-family: Verdana, Geneva, Tahoma, sans-serif"
+          ></p>
         </div>
-        <div class="center-right-image">
-            <img src="./assets/undraw_Firmware_re_fgdy-removebg-preview.png" alt="">
-        </div>
+      </div>
     </div>
+
+    <section class="background_content">
+      <img src="./static/stars.png" id="stars" />
+      <!-- <img src="./moon.png" id="moon"> -->
+      <img src="./static/mountains_behind.png" id="mountains_behind" />
+      <img src="./static/mountains_front.png" id="mountains_front" />
+    </section>
+
+    <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/90c989f0-ff1a-4af1-a25b-84e739893bbb/webchat/config.js" defer></script>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get the elements
-            const welcomeText = document.getElementById('welcome-text');
-            const appText = document.getElementById('app-text');
-            const loremIpsum = document.getElementById('lorem-ipsum');
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the elements
+        const welcomeText = document.getElementById("welcome-text" );
+        const appText = document.getElementById("app-text");
+        const loremIpsum = document.getElementById("lorem-ipsum");
 
-            // Set the text content for typing
-            const welcomeTextContent = "Whisper It, ";
-            const appTextContent = "Alfred Gets It.";
-            const loremIpsumContent = "Drowning in to-do lists and endless meetings? Meet Alfred, your AI companion who takes 'overwhelmed' out of your vocabulary. Alfred listens to your commands, manages your schedule, and tackles tasks, freeing you to focus on what truly matters. Ditch the chaos, reclaim your time, and unlock your full potential with Alfred - your smarter side always a word away.";
+        // Set the text content for typing
+        const welcomeTextContent = "Whisper It,";
+        const appTextContent = "ALFRED GETS IT!!!";
+        const loremIpsumContent =
+          "Drowning in to-do lists and endless meetings? Meet Alfred, your AI companion who takes 'overwhelmed' out of your vocabulary. Alfred listens to your commands, manages your schedule, and tackles tasks, freeing you to focus on what truly matters. Ditch the chaos, reclaim your time, and unlock your full potential with Alfred - your smarter side always a word away.";
 
-            // Typing speed in milliseconds
-            const typingSpeed = 100;
+        // Typing speed in milliseconds
+        const typingSpeed = 100;
 
-            // Typing function
-            function typeText(element, textContent) {
-                let i = 0;
-                const typingInterval = setInterval(function () {
-                    if (i < textContent.length) {
-                        element.textContent += textContent.charAt(i);
-                        i++;
-                    } else {
-                        clearInterval(typingInterval);
-                    }
-                }, typingSpeed);
+        // Typing function
+        function typeText(element, textContent) {
+          let i = 0;
+          const typingInterval = setInterval(function () {
+            if (i < textContent.length) {
+              element.textContent += textContent.charAt(i);
+              i++;
+            } else {
+              clearInterval(typingInterval);
             }
+          }, typingSpeed);
+        }
 
-            // Trigger typing animations
-            typeText(welcomeText, welcomeTextContent);
-            setTimeout(function () {
-                typeText(appText, appTextContent);
-            }, welcomeTextContent.length * typingSpeed + 1000); // Wait for a moment after typing "Welcome To"
-            setTimeout(function () {
-                typeText(loremIpsum, loremIpsumContent);
-            }, (welcomeTextContent.length + appTextContent.length) * typingSpeed + 2000); // Wait for a moment after typing "Vishleshan App"
+        // Trigger typing animations
+        typeText(welcomeText, welcomeTextContent);
+        setTimeout(function () {
+          typeText(appText, appTextContent);
+        }, welcomeTextContent.length * typingSpeed + 1000); // Wait for a moment after typing "Welcome To"
+        setTimeout(function () {
+          typeText(loremIpsum, loremIpsumContent);
+        }, (welcomeTextContent.length + appTextContent.length) * typingSpeed +
+          2000); // Wait for a moment after typing "WebApp name"
 
-            const categoryDropdown = document.getElementById('category');
-            const itemDropdown = document.getElementById('item');
+        const categoryDropdown = document.getElementById("category");
+        const itemDropdown = document.getElementById("item");
 
-            categoryDropdown.addEventListener('change', function () {
-                const selectedCategory = this.value;
-                updateItemDropdown(selectedCategory);
-            });
-
-            function updateItemDropdown(selectedCategory) {
-                $.ajax({
-                    type: 'POST',
-                    url: '/get_items',
-                    data: { 'category': selectedCategory },
-                    success: function (data) {
-                        itemDropdown.innerHTML = "<option value='' disabled selected>Select Item</option>";
-                        data.items.forEach(item => {
-                            const option = document.createElement('option');
-                            option.value = item;
-                            option.text = item;
-                            itemDropdown.add(option);
-                        });
-                    }
-                });
-            }
+        categoryDropdown.addEventListener("change", function () {
+          const selectedCategory = this.value;
+          updateItemDropdown(selectedCategory);
         });
+
+        function updateItemDropdown(selectedCategory) {
+          $.ajax({
+            type: "POST",
+            url: "/get_items",
+            data: { category: selectedCategory },
+            success: function (data) {
+              itemDropdown.innerHTML =
+                "<option value='' disabled selected>Select Item</option>";
+              data.items.forEach((item) => {
+                const option = document.createElement("option");
+                option.value = item;
+                option.text = item;
+                itemDropdown.add(option);
+              });
+            },
+          });
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

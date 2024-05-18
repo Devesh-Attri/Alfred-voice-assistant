@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./contact.css">
+    <!-- Include your font stylesheet links here -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme&display=swap">
+</head>
+
+<body>
+    <div class="header_container">
+        <div class="buttons">
+            <div class="login_button" style="margin-top: -20px;">
+                <a href="./index.html"><button>HOME</button></a>
+            </div>
+            <div class="signup_button" style="margin-top: -20px;">
+                <a href="./login.html"><button>LOGIN</button></a>
+            </div>
+
+    
+            <div class="faq_button" style="margin-top: -20px;">
+                <div class="dropdown">
+                    <button class="dropbtn">FAQ</button>
+                    <div class="dropdown-content">
+                        <div class="question-dropdown">
+                            <button class="dropbtn">What is Hackbot?</button>
+                            <div class="dropdown-content">
+                                <p>This is the answer to the first question.</p>
+                            </div>
+                        </div>
+                        <div class="question-dropdown">
+                            <button class="dropbtn">How does it helps you?</button>
+                            <div class="dropdown-content">
+                                <p>This is the answer to the second question.</p>
+                            </div>
+                        </div>
+                        <div class="question-dropdown">
+                            <button class="dropbtn">Who built Hackbot?</button>
+                            <div class="dropdown-content">
+                                <p>This is the answer to the third question.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logo">
+            <img src="../static/hackbot ai logo.png" alt="logo image">
+        </div>
+    </div>
+
+    <div class="boxContainerUnique center contactContainer" style="margin-top: -175px;">
+        <h2 style="color: rgb(244, 174, 53);">Contact Us</h2>
+        <form id="contactForm">
+            <div class="formsGroupUnique">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="formsGroupUnique">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="formsGroupUnique">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required />
+            </div>
+
+            <div class="formsGroupUnique">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm() {
+            var formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+
+            // Make a POST request to the server
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert('Form submitted successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+
+</html>
